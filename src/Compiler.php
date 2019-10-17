@@ -158,6 +158,10 @@ class Compiler
         return $viewContents;
     }
 
+    protected function parseBindAttributes(string $attributeString): string
+    {
+        return preg_replace("/\s*:([\w-]+)=/m", ' bind:$1=', $attributeString);
+    }
 
     protected function attributesToString(array $attributes): string
     {
